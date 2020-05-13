@@ -78,12 +78,17 @@ def smartSearch(finVal):
 
 if __name__ == "__main__":
     finalEnd = int(input("Enter the final value: "))
+    if(finalEnd < 1):
+        print("Invalid Entry")
+        exit()
+
     # We can try 2 approaches, a broad iterative search and a smarter search
-    startTime = time.time()
-    iterResult = iterativeSearch(finalEnd)
-    endTime = time.time()
-    print("Iterative search found in {0:.2f} secs".format(endTime-startTime))
-    print(iterResult)
+    
+    # startTime = time.time()
+    # iterResult = iterativeSearch(finalEnd)
+    # endTime = time.time()
+    # print("Iterative search found in {0:.2f} secs".format(endTime-startTime))
+    # print(iterResult)
 
     startTime = time.time()
     smartResult = smartSearch(finalEnd)
@@ -95,7 +100,7 @@ if __name__ == "__main__":
 
     print("The two starting values are {0} and {1} and it takes {2} days to get to {3}".format(
         seq[-1], seq[-2]-seq[-1], len(seq), finalEnd))
-    
+
     # We will check how well it fits the curve
     fit = 0
     for i in range(len(seq)):
