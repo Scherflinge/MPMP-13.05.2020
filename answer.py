@@ -77,13 +77,18 @@ def smartSearch(finVal):
 
 
 if __name__ == "__main__":
-    finalEnd = int(input("Enter the final value: "))
+    try:
+        finalEnd = int(float(input("Enter the final value: ")))
+    except:
+        print("Invalid Entry")
+        exit()
+
     if(finalEnd < 1):
         print("Invalid Entry")
         exit()
 
     # We can try 2 approaches, a broad iterative search and a smarter search
-    
+
     # startTime = time.time()
     # iterResult = iterativeSearch(finalEnd)
     # endTime = time.time()
@@ -94,7 +99,9 @@ if __name__ == "__main__":
     smartResult = smartSearch(finalEnd)
     endTime = time.time()
     print("Smart search found in {0:.2f} secs".format(endTime-startTime))
-    print(smartResult)
+    revres = smartResult.copy()
+    revres.reverse()
+    print(revres)
 
     seq = smartResult
 
